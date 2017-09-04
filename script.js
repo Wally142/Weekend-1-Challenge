@@ -5,8 +5,7 @@ function onReady() {
 }
 
 var employees = [];
-var income = 0;
-var MonthlyCost = 0;
+    // not sure how this array got used at all?
 
     // store the information to calculate monthly costs, 
     // append information to the DOM 
@@ -14,13 +13,22 @@ var MonthlyCost = 0;
     // calculate monthly costs and append this to the to DOM.
 
     function dataInput() {
-        var person = new Employee($('#firstIn').val(), $('#lastIn').val(), 
+        var income = 0;
+        var monthCost = 0;
+        var person = new Employee ($('#firstIn').val(), $('#lastIn').val(), 
         $('#idIn').val(), $('#titleIn').val(), $('#salaryIn').val());
-        employees.push(person);
+        employees.push(person);//do not see this array in the console
         income = Number(person.annualsalary);
-        MonthlyCost = Math.round(income / 12);
+        monthCost = Math.round(income / 12);
+        $('#employee-info').append(
+            '<p><strong>Name: </strong>' + $('#firstIn').val() + ' ' + $('#lastIn').val() +
+            '<br /><strong>Employee ID: </strong>' + $('#idIn').val() +
+            '<br /><strong>Job Title: </strong>' + $('#titleIn').val() +
+            '<br /><strong>Annual Salary: </strong>$' + $('#salaryIn').val() +
+            '<br /><strong>Monthly Cost: </strong>$' + Math.round($('#salaryIn').val() / 12) + '</p>'
+        );
         $('.input').val('');
-        console.log('hi'); //Used to check if function is active and is
+        
     }
     
     function Employee (firstIn, lastIn, idIn, titleIn, salaryIn) {
