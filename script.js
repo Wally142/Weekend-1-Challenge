@@ -20,7 +20,7 @@ var employees = [];
         employees.push(person);//do not see this array in the console
         income = Number(person.annualsalary);
         monthCost = Math.round(income / 12);
-        $('#employee-info').append(
+        $('#employee').append(
             '<p><em>Name: </em>' + $('#firstIn').val() + ' ' + $('#lastIn').val() +
             '<br /><em>Employee ID: </em>' + $('#idIn').val() +
             '<br /><em>Job Title: </em>' + $('#titleIn').val() +
